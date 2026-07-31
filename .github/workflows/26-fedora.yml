@@ -15,3 +15,4 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       dockerfile: fedora/Containerfile
+      name: "mkosi-fedora"

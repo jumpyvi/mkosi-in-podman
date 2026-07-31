@@ -3,6 +3,10 @@ name: Reusable GHCR Build and Push
 on:
   workflow_call:
     inputs:
+      name:
+        description: "Name for the container image"
+        required: false
+        type: string
       dockerfile:
         description: "Path to the Dockerfile"
         required: true
@@ -15,7 +19,7 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ${{ inputs.name }}
 
 jobs:
   build-and-push:
@@ -40,6 +44,10 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          flavor: |
+            latest=false
+          tags: |
+            type=ref,event=branch
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
