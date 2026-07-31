@@ -19,7 +19,7 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ inputs.name }}
+  IMAGE_NAME: ${{ github.repository_owner }}/${{ inputs.name }}
 
 jobs:
   build-and-push:
