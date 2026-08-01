@@ -14,5 +14,5 @@ jobs:
   call-docker-publish:
     uses: ./.github/workflows/reusable.yml
     with:
-      dockerfile: ubuntu/Containerfile
-      name: "mkosi-ubuntu"
+      dockerfile: debian/Containerfile
+      name: "mkosi-debian"
