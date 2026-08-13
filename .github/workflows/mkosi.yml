@@ -2,7 +2,7 @@ name: Deploy Image
 
 on:
   push:
-    branches: [ "26" ]
+    branches: [ "tanit" ]
   schedule:
     - cron: '0 0 */14 * *'
 
@@ -14,5 +14,5 @@ jobs:
   call-docker-publish:
     uses: ./.github/workflows/reusable.yml
     with:
-      dockerfile: fedora/Containerfile
-      name: "mkosi-fedora"
+      dockerfile: mkosi/Containerfile
+      name: "mkosi"
